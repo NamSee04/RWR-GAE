@@ -1,3 +1,43 @@
+<p align="center">
+  <a href="https://www.uit.edu.vn/" title="Trường Đại học Công nghệ Thông tin" style="border: 5;">
+    <img src="https://i.imgur.com/WmMnSRt.png" alt="Trường Đại học Công nghệ Thông tin | University of Information Technology">
+  </a>
+</p>
+
+<!-- Title -->
+<h1 align="center"><b>DS101.P11 - Thống kê và xác suất chuyên sâu</b></h1>
+
+## BẢNG MỤC LỤC
+
+- [ Giới thiệu môn học](#gioithieumonhoc)
+- [ Giảng viên hướng dẫn](#giangvien)
+- [ Thành viên nhóm](#thanhvien)
+
+## GIỚI THIỆU MÔN HỌC
+
+<a name="gioithieumonhoc"></a>
+
+- **Tên môn học**: Thống kê và xác suất chuyên sâu
+- **Mã môn học**: DS101.P11
+- **Năm học**: 2024-2025
+
+## GIẢNG VIÊN HƯỚNG DẪN
+
+<a name="giangvien"></a>
+
+- TS **Dương Ngọc Hảo**
+
+## THÀNH VIÊN NHÓM
+
+<a name="thanhvien"></a>
+| STT | MSSV | Họ và Tên | Github | Email |
+| ------ |:-------------:| ----------------------:|-----------------------------------------------------:|-------------------------:
+| 1 | 22520914 | Nguyễn Hải Nam |[NamSee04](https://github.com/NamSee04) |22520914@gm.uit.edu.vn |
+| 2 | 22520673 | Lê Hữu Khoa |[kevdn](https://github.com/kevdn) |22520673@gm.uit.edu.vn |
+
+
+
+
 # RWR-GAE
 Code for the paper ["Random Walk Regularized Graph Auto Encoder"](https://arxiv.org/pdf/1908.04003.pdf)
 
@@ -20,77 +60,44 @@ python train.py --model="gcn_ae" --dataset-str="cora" --dw=1 --epochs=200 --walk
 - Supported datasets are "cora" and "citeseer"
 - dw, whether to use regularization or not (0: no regularization, 1: yes)
 - if dw = 0, then all the remaining params are useless
-- refer to _gae/train.py_ for other program arguments
+- refer to _gae/train.py_ for other program arguments 
 
 ### Results on CORA test set
 Link Prediction results:
 
-Model | ROC | AP
+Model | AUC | AP
 ---|---|---
-GAE | 0.91 | 0.92
-VGAE | 0.914 | 0.926
-GAE (our impl) | 0.91430 | 0.92585
-VGAE (our impl) | 0.921715 | 0.927751
-ARGE | 0.924 | 0.932
-ARVGE | 0.924 | 0.926
-DW-GAE | 0.924 | 0.918
-DW-VGAE | 0.926 | 0.918
+SC | 84.6 &pm; 0.01 | 88.5 &pm; 0.00
+DW | 83.1 &pm; 0.01 | 85.0 &pm; 0.00
+GAE  | 91.0 &pm; 0.02 | 92.0 &pm; 0.03
+RWR-GAE  | **92.9 &pm; 0.3**  | **92.7 &pm; 0.5**
+
 
 Clustering results:
 
 Model | Acc | NMI | F1 | Precision | ARI
 ---|---|---|---|---|---
+SC | 0.367 | 0.127 | 0.318 | 0.193 | 0.031
+DW | 0.484 | 0.327 | 0.392 | 0.361 | 0.243
 GAE | 0.596 | 0.429 | 0.595 | 0.596 | 0.347
-VGAE | 0.609 | 0.436 | 0.609 | 0.609 | 0.346
-GAE (our impl) | 0.526 | 0.42 | 0.508 | 0.530 | 0.308
-VGAE (our impl) | 0.590 | 0.445 | 0.563 | 0.578 | 0.351
-ARGE | 0.640 | 0.449 | 0.619 | 0.646 | 0.352
-ARVGE | 0.638 | 0.450 | 0.627 | 0.624 | 0.374
-DW-GAE | 0.669 | **0.464** | 0.618 | 0.629 | **0.417**
-DW-VGAE | **0.685** | 0.455 | **0.668** | **0.685** | **0.417**
-
-### Results on Citeseer test set
-Link Prediction results:
-
-Model | ROC | AP
----|---|---
-GAE | 0.895 | 0.899
-VGAE | 0.908 | 0.92
-ARGE | 0.932 | 0.919
-ARVGE | 0.924 | 0.93
-DW-GAE | 0.921 | 0.915
-DW-VGAE | 0.913 | 0.908
-
-Clustering results:
-
-Model | Acc | NMI | F1 | Precision | ARI
----|---|---|---|---|---
-GAE | 0.408 | 0.176 | 0.372 | 0.418 | 0.124
-VGAE | 0.344 | 0.156 | 0.308 | 0.349 | 0.093
-ARGE | 0.573 | **0.350** | 0.546 | 0.573 | 0.341
-ARVGE | 0.544 | 0.261 | 0.529 | 0.549 | 0.245
-DW-GAE | **0.616** | 0.344 | **0.585** | **0.605** | **0.343**
-DW-VGAE | 0.613 | 0.338 | 0.582 | 0.595 | 0.336
+RWR-GAE | **0.669** | **0.481**| **0.618** | **0.629** | **0.417**
 
 ### Results on Pubmed test set
 Link Prediction results:
 
-Model | ROC | AP
+Model | AUC | AP
 ---|---|---
-GAE | 0.964 | 0.965
-VGAE | 0.944 | 0.947
-ARGE | 0.968 | 0.971
-ARVGE | 0.965 | 0.968
-DW-GAE | 0.947 | 0.947
-DW-VGAE | 0.953 | 0.952
+SC | 84.2 &pm; 0.02 | 87.8 &pm; 0.01
+DW | 84.4 &pm; 0.00 | 84.1 &pm; 0.00
+GAE | 96.4 &pm; 0.00 | 96.5 &pm; 0.00
+RWR-GAE | 96.2 &pm; 0.1 | 96.3 &pm; 0.09
+
 
 Clustering results:
 
 Model | Acc | NMI | F1 | Precision | ARI
 ---|---|---|---|---|---
 GAE | 0.697 | 0.33 | 0.69 | 0.72 | 0.322
-VGAE | 0.608 | 0.219 | 0.612 | 0.613 | 0.195
-DW-GAE | 0.726 | **0.355** | 0.714 | 0.729 | 0.37
-DW-VGAE | **0.736** | 0.346 | **0.725** | **0.736** | **0.381**
+RWR-GAE | **0.726** | **0.355** | **0.714** | **0.729** | **0.37**
 
 Runs in 2-3 mins for cora dataset on cpu. The code currently doesn't support GPU.
