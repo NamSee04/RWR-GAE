@@ -62,6 +62,11 @@ python train.py --model="gcn_ae" --dataset-str="cora" --dw=1 --epochs=200 --walk
 - if dw = 0, then all the remaining params are useless
 - refer to _gae/train.py_ for other program arguments 
 
+### Models
+
+![Graph Auto Encoders](assets/plot_predict_gae.png)
+![RWR-GAE](assets/plot_predict_dwgae.png)
+
 ### Results on CORA test set
 Link Prediction results:
 
